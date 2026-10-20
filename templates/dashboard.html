@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GreenBox - Інформація</title>
+    <!-- Підключення Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <!-- Шапка з кнопкою -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-success">Панель інформації про фітобокс 🌱</h1>
+            <a href="{% url 'add_info' %}" class="btn btn-success">Вказати параметри</a>
+        </div>
+
+        <!-- Картка з даними -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-white">
+                <h5 class="mb-0">Поточні параметри системи</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for box in greenhouses %}
+                    <li class="list-group-item py-4">
+                        <h4 class="card-title text-dark">{{ box.name }}</h4>
+                        <p class="card-text fs-5 mb-2">
+                            <span class="badge bg-secondary">Площа: {{ box.area }} м²</span> 
+                            <span class="badge bg-secondary">Об'єм: {{ box.volume }} л</span> 
+                            <span class="badge bg-secondary">Висота: {{ box.height }} м</span>
+                        </p>
+                        <small class="text-muted">Статус: {{ box.description }}</small>
+                    </li>
+                {% empty %}
+                    <li class="list-group-item text-muted py-4">
+                        Параметри теплички ще не задані. Натисніть кнопку вище, щоб додати їх!
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

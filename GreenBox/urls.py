@@ -7,4 +7,5 @@ urlpatterns = [
     path('', DashboardView.as_view(), name='dashboard'),
     path('create/', AddInfoView.as_view(), name='add_info'),
     path('sensors/', include('sensors.urls')),
+    path('security/', include('security.urls')),
 ]

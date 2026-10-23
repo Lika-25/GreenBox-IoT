@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Додати засіб безпеки</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+    <div class="container" style="max-width: 600px;">
+        <h2 class="text-success mb-4" style="font-weight: 500;">Новий засіб безпеки 🛡️</h2>
+        
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label text-muted">Назва заходу / засобу</label>
+                        {{ form.title }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted">Категорія</label>
+                        {{ form.category }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted">Опис та правила застосування</label>
+                        {{ form.description }}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-muted">Відповідальна особа</label>
+                        {{ form.responsible }}
+                    </div>
+                    <div class="mb-4 form-check">
+                        {{ form.is_active }}
+                        <label class="form-check-label text-muted">Засіб впроваджено (активний)</label>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'security_list' %}" class="btn btn-light border">Скасувати</a>
+                        <button type="submit" class="btn btn-success">Зберегти</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

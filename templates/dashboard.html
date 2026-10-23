@@ -11,9 +11,12 @@
     <div class="container mt-5">
         <!-- Шапка з кнопкою -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="text-success">Панель інформації про фітобокс 🌱</h1>
-            <a href="{% url 'add_info' %}" class="btn btn-success">Вказати параметри</a>
-            <a href="/sensors/" class="btn btn-outline-success ms-2">Датчики 🌡️</a>
+            <h1 class="text-success mb-0">Панель інформації про фітобокс 🌱</h1>
+            <div class="ms-auto d-flex gap-2">
+                <a href="{% url 'add_info' %}" class="btn btn-success">Вказати параметри</a>
+                <a href="/sensors/" class="btn btn-outline-success">Датчики 🌡️</a>
+                <a href="/security/" class="btn btn-outline-success">Безпека 🛡️</a>
+            </div>
         </div>
 
         <!-- Картка з даними -->

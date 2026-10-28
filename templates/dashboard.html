@@ -9,14 +9,19 @@
 </head>
 <body class="bg-light">
     <div class="container mt-5">
-        <!-- Шапка з кнопкою -->
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 class="text-success mb-0">Панель інформації про фітобокс 🌱</h1>
-            <div class="ms-auto d-flex gap-2">
-                <a href="{% url 'add_info' %}" class="btn btn-success">Вказати параметри</a>
-                <a href="/sensors/" class="btn btn-outline-success">Датчики 🌡️</a>
-                <a href="/security/" class="btn btn-outline-success">Безпека 🛡️</a>
-                <a href="/analytics/" class="btn btn-outline-success">Аналітика 🛡️</a>
+        <!-- Верхня панель: зліва заголовок, справа вкладки модулів, а під ними довга кнопка "Вказати параметри" -->
+        <div class="d-flex flex-wrap justify-content-between align-items-start mb-4 gap-3">
+            <h1 class="text-success mb-0 fw-bold">Панель інформації про фітобокс 🌱</h1>
+            
+            <!-- Права колонка: вкладки і довга кнопка під ними -->
+            <div class="d-flex flex-column align-items-end gap-2" style="min-width: 240px;">
+                <div class="d-flex flex-wrap gap-2 w-100 justify-content-end">
+                    <a href="/sensors/" class="btn btn-outline-success btn-sm">Датчики 🌡️</a>
+                    <a href="/security/" class="btn btn-outline-success btn-sm">Безпека 🛡️</a>
+                    <a href="/analytics/" class="btn btn-outline-success btn-sm">Аналітика 📊</a>
+                </div>
+                <!-- Додано клас w-100, щоб кнопка стала довгою -->
+                <a href="{% url 'add_info' %}" class="btn btn-success btn-sm px-3 py-1 w-100 text-center">Вказати параметри фітобоксу ⚙</a>
             </div>
         </div>
 

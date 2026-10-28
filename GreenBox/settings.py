@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'monitoring',
     'sensors',
     'security',
+    'analytics',
 ]
 
 MIDDLEWARE = [

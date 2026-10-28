@@ -8,4 +8,5 @@ urlpatterns = [
     path('create/', AddInfoView.as_view(), name='add_info'),
     path('sensors/', include('sensors.urls')),
     path('security/', include('security.urls')),
+    path('analytics/', include('analytics.urls')),
 ]

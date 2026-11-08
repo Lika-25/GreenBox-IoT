@@ -22,3 +22,5 @@ Thumbs.db
 # IDE
 .idea/
 .vscode/
+
+start_greenbox.sh

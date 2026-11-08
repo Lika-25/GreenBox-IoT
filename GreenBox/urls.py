@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from monitoring.views import DashboardView, AddInfoView
+from monitoring.views import DashboardView, AddInfoView, user_list_view 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('sensors/', include('sensors.urls')),
     path('security/', include('security.urls')),
     path('analytics/', include('analytics.urls')),
+    path('users/', user_list_view, name='users'), # Анжеліка
 ]

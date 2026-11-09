@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Користувачі системи</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light p-4">
+    <div class="container" style="max-width: 900px;">
+        
+        <!-- Шапка сторінки -->
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="text-success" style="font-weight: 500;">Користувачі 👥</h2>
+            <div>
+                <a href="/" class="btn btn-outline-secondary me-2">На головну</a>
+            </div>
+        </div>
+
+        <!-- Картка з таблицею -->
+        <div class="card shadow-sm">
+            <div class="card-header bg-white py-3">
+                <h6 class="mb-0 text-muted">Список користувачів у базі даних</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-borderless align-middle">
+                    <thead class="border-bottom">
+                        <tr>
+                            <th>Ім'я</th>
+                            <!-- Добавлено text-center для заголовків -->
+                            <th class="text-center">Роль</th>
+                            <th class="text-center">Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr class="border-bottom">
+                            <td class="fw-bold">{{ user.name }}</td>
+                            <!-- Добавлено text-center для комірок з роллю та email -->
+                            <td class="text-center">
+                                {% if user.role == 'Admin' %}
+                                    <span class="badge bg-danger">Admin</span>
+                                {% elif user.role == 'Main Operator' %}
+                                    <span class="badge bg-primary">Main Operator</span>
+                                {% else %}
+                                    <span class="badge bg-success">{{ user.role }}</span>
+                                {% endif %}
+                            </td>
+                            <td class="text-center">{{ user.email }}</td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="3" class="text-center text-muted py-4">Користувачів ще не додано.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

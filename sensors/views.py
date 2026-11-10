@@ -1,14 +1,18 @@
 from django.shortcuts import render, redirect
 from .models import Sensor
 from .forms import SensorForm
+import pymongo
 
 def sensor_list(request):
-    # Отримуємо всі датчики з бази даних
-    sensors = Sensor.objects.all()
+    client = pymongo.MongoClient('localhost', 27017)
+    db = client['GreenBox_Sensors_DB']
+    sensors_collection = db['sensors']
+    
+    sensors = list(sensors_collection.find())
+    
     return render(request, 'sensors/sensor_list.html', {'sensors': sensors})
 
 def add_sensor(request):
-    # Обробка форми додавання нового датчика
     if request.method == 'POST':
         form = SensorForm(request.POST)
         if form.is_valid():
@@ -16,4 +20,5 @@ def add_sensor(request):
             return redirect('sensor_list')
     else:
         form = SensorForm()
+    
     return render(request, 'sensors/add_sensor.html', {'form': form})

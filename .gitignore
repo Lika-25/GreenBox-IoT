@@ -1,21 +1,27 @@
-# Python
+venv/
+.venv/
+env/
+
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Virtual Environment
-env/
-venv/
+build/
+dist/
+*.egg-info/
 
-# Django
+media/
+
+staticfiles/
+
+.env
+.env.*
+
 *.log
-db.sqlite3
-db.sqlite3-journal
 
-# Logs
-logs/
+.vscode/
+.idea/
 
-# OS
 .DS_Store
 Thumbs.db
 
@@ -24,3 +30,15 @@ Thumbs.db
 .vscode/
 
 start_greenbox.sh
+.coverage
+htmlcov/
+.pytest_cache/
+
+.mypy_cache/    
+
+.ruff_cache/
+
+.ipynb_checkpoints/
+
+secrets.json
+credentials.json

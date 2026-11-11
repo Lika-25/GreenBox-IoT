@@ -23,7 +23,7 @@
 
 1. Клонуйте репозиторій та перейдіть у папку:
    ```bash
-   git clone https://github.com/Lika-25/GreenBox.git
+   git clone https://github.com/Lika-25/GreenBox-IoT.git
    cd GreenBox
 2. Створіть віртуальне середовище та встановіть залежності:
    ```bash
